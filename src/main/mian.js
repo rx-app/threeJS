@@ -1,6 +1,7 @@
 import * as THREE from 'three'
 // 轨道控制器
 import {OrbitControls} from 'three/examples/jsm/controls/OrbitControls'
+import gsap from 'gsap';
 
 const scene = new THREE.Scene()
 
@@ -12,9 +13,9 @@ scene.add(camera)
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const material = new THREE.MeshBasicMaterial( {color: 0x34f3ec} );
 const cube = new THREE.Mesh( geometry, material );
-cube.position.set(5,0,0)
-cube.scale.set(3,2,1)
-cube.rotation.set(Math.PI/4,0,0,'XYZ')
+// cube.position.set(5,0,0)
+// cube.scale.set(3,2,1)
+// cube.rotation.set(Math.PI/4,0,0,'XYZ')
 scene.add( cube );
 
 const renderer = new THREE.WebGLRenderer();
@@ -30,13 +31,12 @@ scene.add( axesHelper );
 
 const clock = new THREE.Clock()
 
-function render(){
-    // let time = clock.getElapsedTime()
-    // console.log('时钟运行总时长:',time)
+gsap.to(cube.position,{x:5,duration:5})
+gsap.to(cube.rotation,{x:2*Math.PI,duration:5,ease: "power1.inOut"})
 
-    let deltaTime = clock.getDelta()
-    console.log('两次获取时间的间隔时间:',deltaTime)
-    
+function render(){
+
+
     renderer.render(scene,camera)
     requestAnimationFrame(render)
 }
