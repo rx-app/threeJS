@@ -13,6 +13,8 @@ const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const material = new THREE.MeshBasicMaterial( {color: 0x34f3ec} );
 const cube = new THREE.Mesh( geometry, material );
 cube.position.set(5,0,0)
+cube.scale.set(3,2,1)
+cube.rotation.set(Math.PI/4,0,0,'XYZ')
 scene.add( cube );
 
 const renderer = new THREE.WebGLRenderer();
