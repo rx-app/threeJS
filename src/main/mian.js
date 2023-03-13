@@ -21,6 +21,9 @@ document.body.appendChild( renderer.domElement );
 // renderer.render(scene,camera)
 
 const controls = new OrbitControls(camera,renderer.domElement)
+// 红色代表 X 轴. 绿色代表 Y 轴. 蓝色代表 Z 轴.
+const axesHelper = new THREE.AxesHelper( 5 );
+scene.add( axesHelper );
 
 function render(){
     renderer.render(scene,camera)
