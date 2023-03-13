@@ -42,7 +42,14 @@ function render(){
 }
 
 render()
-
+window.addEventListener('dblclick',()=>{
+    if(document.fullscreenElement){
+        document.exitFullscreen()
+    }else{
+        renderer.domElement.requestFullscreen()
+    }
+    
+})
 
 window.addEventListener('resize',()=>{
     camera.aspect = window.innerWidth / window.innerHeight
