@@ -30,6 +30,7 @@ scene.add( axesHelper );
 
 function render(){
     cube.position.x+=0.01
+    cube.rotation.x+=0.01
     if(cube.position.x>5){
         cube.position.x=0
     }
