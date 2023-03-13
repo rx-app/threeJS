@@ -12,6 +12,7 @@ scene.add(camera)
 const geometry = new THREE.BoxGeometry( 1, 1, 1 );
 const material = new THREE.MeshBasicMaterial( {color: 0x34f3ec} );
 const cube = new THREE.Mesh( geometry, material );
+cube.position.set(5,0,0)
 scene.add( cube );
 
 const renderer = new THREE.WebGLRenderer();
@@ -26,6 +27,10 @@ const axesHelper = new THREE.AxesHelper( 5 );
 scene.add( axesHelper );
 
 function render(){
+    cube.position.x+=0.01
+    if(cube.position.x>5){
+        cube.position.x=0
+    }
     renderer.render(scene,camera)
     requestAnimationFrame(render)
 }
