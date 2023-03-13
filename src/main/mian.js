@@ -28,16 +28,15 @@ const controls = new OrbitControls(camera,renderer.domElement)
 const axesHelper = new THREE.AxesHelper( 5 );
 scene.add( axesHelper );
 
-function render(time){
-    // console.log(time)
-    // cube.position.x+=0.01
-    // cube.rotation.x+=0.01
-    let t = time/1000 
-    cube.position.x = t*1 % 5
+const clock = new THREE.Clock()
 
-    if(cube.position.x>5){
-        cube.position.x=0
-    }
+function render(){
+    // let time = clock.getElapsedTime()
+    // console.log('时钟运行总时长:',time)
+
+    let deltaTime = clock.getDelta()
+    console.log('两次获取时间的间隔时间:',deltaTime)
+    
     renderer.render(scene,camera)
     requestAnimationFrame(render)
 }
